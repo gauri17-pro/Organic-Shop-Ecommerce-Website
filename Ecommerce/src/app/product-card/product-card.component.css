@@ -1,0 +1,16 @@
+.card-footer {
+    padding: 0;
+}
+
+.card {
+    margin-bottom: 30px;
+}
+
+.card>img {
+    height: 200px;
+    width: auto;
+}
+
+.centered{
+    padding: 5px;
+}

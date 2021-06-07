@@ -1,0 +1,23 @@
+<h1 class="display-4">Orders</h1>
+<table class="table table-striped">
+    <thead>
+        <tr class="bg-secondary">
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Products</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders">
+            <td *ngFor="let item of order.Shippings">
+                {{item.name}}
+            </td>
+            <td>{{ order.createdAt|date}}</td>
+            <td>
+                <ul class="list-group">
+                    <li *ngFor="let product of order.Products" class="list-group-item">{{product.name}} X {{product.OrderItem.quantity}} : Price {{(product.price*product.orderItem.quantity)|currency:'INR':'symbol'}}</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>

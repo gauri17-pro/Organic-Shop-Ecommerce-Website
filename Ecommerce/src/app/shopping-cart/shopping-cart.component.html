@@ -1,0 +1,56 @@
+<h1>Shopping Cart</h1>
+<div class="row col-md-10" *ngIf="carts">
+    <p>
+        You have {{totalCarts}} items in your shopping cart
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Product</th>
+                <th class="text-center" style="width: 250px">Quantity</th>
+                <th class="text-right" style="width: 200px">Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of carts">
+                <td>
+                    <div [style.backgroundImage]="'url('+item.imageURL+')'" class="thumbnail"></div>
+                </td>
+                <td>{{item.name}}</td>
+                <td class="text-center">
+                    <div class="row no-gutters">
+                        <div class="col-3">
+                            <button (click)="remove(item.product_id)" class="btn btn-secondary btn-block">-</button>
+                        </div>
+                        <div class="col">
+                            <div class="text-center centered">{{item.CartItem.quantity}} in cart</div>
+                        </div>
+                        <div class="col-3">
+                            <button (click)="addToCart(item)" class="btn btn-secondary btn-block">+</button>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-right">{{item.CartItem.quantity*item.price}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="clearCart(item.product_id)">Clear</button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th></th>
+                <th class="text-right">Total Price:</th>
+                <th class="text-right">{{totalPrice }}</th>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="row">
+        <div class="col">
+            <a routerLink="/check-out" *ngIf="carts.length" class="btn btn-primary">Check Out</a>
+        </div>
+    </div>
+    
+</div>

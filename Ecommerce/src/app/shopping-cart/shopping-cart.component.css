@@ -1,0 +1,14 @@
+.thumbnail {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background-size: cover;
+}
+
+.div{
+    vertical-align: middle;
+}
+
+.centered{
+  padding: 7px;
+}

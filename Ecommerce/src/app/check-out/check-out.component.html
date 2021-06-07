@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-6">
+        <form #f = "ngForm" (ngSubmit)="placeOrder()">
+            <div>
+                <h4>Shipping</h4>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input #name="ngModel" type="text" [(ngModel)]="shipping.name" type="text" class="form-control" [ngModelOptions]="{standalone: true}">
+                <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                    <div *ngIf="name.errors?.required">Name is required.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input #Address1="ngModel" name="Address1" [(ngModel)]="shipping.Address1" type="text" class="form-control" placeholder="line1" [ngModelOptions]="{standalone: true}">
+                <div class="alert alert-danger" *ngIf="Address1.touched && Address1.invalid">
+                    <div *ngIf="Address1.errors?.required">Address line1 is required.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input #Address2="ngModel" name="Address2" [(ngModel)]="shipping.Address2"  type="text" class="form-control" placeholder="line2" [ngModelOptions]="{standalone: true}">
+                <div class="alert alert-danger" *ngIf="Address2.touched && Address2.invalid">
+                    <div *ngIf="Address2.errors?.required">Address line2 is required.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="City">City</label>
+                <input #City="ngModel" [(ngModel)]="shipping.City" type="text" class="form-control" placeholder="City" [ngModelOptions]="{standalone: true}">
+                <div class="alert alert-danger" *ngIf="City.touched && City.invalid">
+                    <div *ngIf="City.errors?.required">City is required.</div>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Place Order</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <cart-summary></cart-summary>
+    </div>
+</div>
